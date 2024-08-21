@@ -1,0 +1,21 @@
+.footer-alignment-custom{
+    max-width: 1204px !important;
+    width: 100%;
+}  
+
+@media (max-width:1178px){
+.footer-company-link{
+    padding-left: 0px !important;
+}
+}
+@media (max-width:767px){
+    .support-custom-link{
+        padding-left: 0px !important;
+    }
+    .resources-layout-custom{
+        padding-left: 0px !important;
+    }
+    .contactus-layout-custom{
+        padding-left: 0px !important;
+    }
+}
