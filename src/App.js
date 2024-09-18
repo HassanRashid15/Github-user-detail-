@@ -1,16 +1,20 @@
 import React from 'react';
-import Navbar from './Component/Navbar.js';
-import Footer from './Component/Footer.js';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Component/Navbar';
+import Footer from './Component/Footer';
+import Home from './Pages/Home';  // Your Home component
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <div className="flex-grow">
-        {/* Your main content goes here */}
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-      <Footer />
-    </div>
   );
 }
 

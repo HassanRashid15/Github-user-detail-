@@ -17,7 +17,7 @@ function Navbar() {
             <div>
               <a href="#" className="flex items-center py-5 px-2 hover:text-gray-900">
              {/* <img src ={navlogo}/> */}
-                <span className="font-bold navbar-heading-tittle">Team Password</span>
+                <span className="font-bold navbar-heading-tittle">Github</span>
               </a>
             </div>
             <div className="hidden md:flex items-center space-x-1">

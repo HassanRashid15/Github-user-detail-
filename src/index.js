@@ -2,12 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 
+// Initialize AOS
+AOS.init({
+  duration: 1000, // Duration of animations in milliseconds
+  easing: 'ease-in-out', // Easing function
+});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+      <Router>
     <App />
+    </Router>
   </React.StrictMode>
 );
 
