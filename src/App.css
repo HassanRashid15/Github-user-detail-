@@ -1,2 +1,7 @@
 @import "./Stylling/Navbar.css";
 @import "./Stylling/Footer.css";
+
+
+.modal-box-custom{
+    height: 500px;
+}
