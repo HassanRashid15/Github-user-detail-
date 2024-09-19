@@ -1,10 +1,10 @@
-// components/Home.js
-
 import React, { useState, useEffect } from 'react';
 import { fetchUsers, fetchUserRepos } from "./../Utils/Api.js";
 import Modal from './Modal';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -71,8 +71,40 @@ function Home() {
     setSearchTerm(event.target.value);
   };
 
+  const renderSkeletonCards = () => (
+    <SkeletonTheme baseColor="#e0e0e0" highlightColor="#f0f0f0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {[...Array(8)].map((_, i) => (
+          <div key={i} className="relative bg-white shadow-lg rounded-lg p-4 flex flex-col items-center">
+            {/* Avatar skeleton */}
+            <Skeleton circle={true} height={96} width={96} className="mb-4" />
+
+            {/* Username skeleton */}
+            <Skeleton width={`60%`} height={24} className="mb-2" />
+
+            {/* ID skeleton */}
+            <Skeleton width={`40%`} height={20} className="mb-2" />
+
+            {/* Button skeleton */}
+            <Skeleton width={`60%`} height={40} className="mt-4" />
+          </div>
+        ))}
+      </div>
+    </SkeletonTheme>
+  );
+
   if (loading) {
-    return <div className="flex justify-center items-center h-screen text-xl">Loading...</div>;
+    // Skeleton loading state
+    return (
+      <div className="min-h-screen bg-gray-100 flex flex-col">
+        <header className="bg-blue-600 text-white p-4">
+          <h1 className="text-3xl text-center font-bold">GitHub Users</h1>
+        </header>
+        <section className="flex-grow p-4 my-7">
+          {renderSkeletonCards()}
+        </section>
+      </div>
+    );
   }
 
   if (error) {
